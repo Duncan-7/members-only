@@ -1,0 +1,10 @@
+<ul>
+  <% @posts.each do |post| %>
+    <p><%= post.body %> - 
+    <% if logged_in? %>
+    <%= User.find_by(id: post.user_id).name %></p>
+    <% else %>
+    Anonymous
+    <% end %>
+  <% end %>     
+</ul>

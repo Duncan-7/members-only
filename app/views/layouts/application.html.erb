@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <%= link_to(image_tag("download"), root_path) %>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
     <%= yield %>
+    <%= render 'layouts/navigation_links' %>
+   
+    <% if logged_in? %>
+    <p>You are logged in<p>
+    <% else %>
+    <p>Not logged in</p>
+    <% end %>
   </body>
 </html>
